@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import SearchBar from './components/SearchBar';
+import UserList from './components/UserList';
+import UserDetails from './components/UserDetails';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState([]);
+
+  const handleSearch = (query) => {
+    axios.get(`/user/searchByNamePrefix?prefix=${query}`).then((response) => {
+      setUsers(response.data);
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <SearchBar onSearch={handleSearch} />
+        <Routes>
+          <Route path="/" element={<UserList users={users} />} />
+          <Route path="/user/:id" element={<UserDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
