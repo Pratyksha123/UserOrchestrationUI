@@ -7,7 +7,7 @@ const UserDetails = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/getByEmail?email=${id}`).then((response) => {
+    axios.get(`http://localhost:8080/user/getByEmail?email=${id}`).then((response) => {
       setUser(response.data);
     });
   }, [id]);
