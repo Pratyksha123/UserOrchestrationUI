@@ -12,7 +12,7 @@ const UserList = () => {
 
   const handleSearch = () => {
     console.log(query);
-    axios.get(`http://localhost:8080/user/searchByNamePrefix?prefix=${query}`).then((response) => {
+    axios.get(`http://localhost:8080/user/searchByNameOrSsnPrefix?prefix=${query}`).then((response) => {
       console.log(response.data);
       setUsers(response.data);
     });
@@ -46,7 +46,7 @@ const UserList = () => {
               <td>{user.lastName}</td>
               <td>{user.ssn}</td>
               <td>
-                <Link to={`/user/${user.email}`}>View Details</Link>
+                <Link to={`/userdetails/${user.email}`}>View Details</Link>
               </td>
             </tr>
           ))}
