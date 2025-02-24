@@ -5,6 +5,7 @@ import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom';
 import UserList from './UserList';
 import './App.css'
+import App from './App';
 
 jest.mock('axios');
 
