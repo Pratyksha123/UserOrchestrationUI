@@ -1,7 +1,7 @@
 # **User Search Frontend Application**
 
 ## **Overview**  
-This project is a frontend application built using **ReactJS/AngularJS**. It provides a **free text search** feature to search users in the backend and display them on the web UI. The application communicates with a **REST API** to fetch user data based on various criteria.  
+This project is a frontend application built using **ReactJS**. It provides a **free text search** feature to search users in the backend and display them on the web UI. The application communicates with a **REST API** to fetch user data based on various criteria.  
 
 ## **Features**  
 ✅ **Global search bar** on the default page (similar to Google.com)  
